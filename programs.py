@@ -1,87 +1,58 @@
-#sum of odd digits
- 
+# sum of even number
 '''
-
-sum=0
-a=6789
-for i in str(a):
-    digit=int(i)
-    if digit%2!=0:
-        # print(digit)
-        sum=sum+digit
-print(sum)
-
-'''
-
-# sum of digits of non prime number
-
-'''
-num=2958
-sum=0
-for i in str(num):
-    dig=int(i)
-    count=0
-    if dig>1:
-        for j in range (1,dig+1):
-            if dig%j==0:
-                count+=1
-    if count!=2:
-        print(dig)
-        sum=sum+dig  
-print(sum)
+def even(n):
+    sum=0
+    for i in n:
+      dig=int(i)
+      if dig%2==0:
+        sum+=dig
+    print(sum) 
+       
+even("24536")
 
 '''
 
-
-#perfect number
+# smallest prime digit in number  else there is no prime 
 
 '''
-num=int(input("enter a number : "))   # 6,28
-sum=0
-for i in range(1,num):
-    if num%i==0:
-        sum=sum+i
-if sum==num:
-    print(num," is a perfect number") 
+n = "9837"
+prime_digits = []
+
+for i in n:
+    dig = int(i)
+    if dig > 1:  
+        is_prime = True
+        for j in range(2, int(dig ** 0.5) + 1):
+            if dig % j == 0:
+                is_prime = False
+                break
+        if is_prime:
+            prime_digits.append(dig)
+
+if prime_digits:
+    print(min(prime_digits))  
 else:
-    print(num,"is not a perfect number")
+    print("No prime digit found")
 
-'''
-
-# LCM
-
-'''
-a, b = 12, 18
-gcd = 1
-for i in range(1, min(a, b) + 1):
-    if a % i == 0 and b % i == 0:
-        gcd = i
-lcm = (a * b) // gcd
-print("LCM is", lcm)
-print("GCD is", gcd)
-
- '''
+'''      
 
 
+# armstrong number in a given range
 
-#greatest common divisor
+start = int(input("Enter start of range: "))
+end = int(input("Enter end of range: "))
 
-'''
-num1=24
-num2=12
-if num1<num2:
-    small=num1
-else:
-    small=num2
-while(True):
-    if(num1%small==0 and num2%small==0):
-        print(small)
-        small-=1   
+for i in range(start, end + 1):
+    temp = i
+    l = len(str(i))  
+    sum = 0
+    while temp > 0:
+        digit = temp % 10  
+        sum += digit ** l  
+        temp //= 10       
 
-'''
-
-
-                   
+    if sum == i:
+        print(i)
 
 
 
